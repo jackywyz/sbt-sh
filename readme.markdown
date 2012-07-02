@@ -11,7 +11,7 @@ If you're like me you will often find yourself typing in shell commands into the
 
 Using the sbt-sh plugin (and sbt-0.10) you can invoke shell commands:
 
-	> sh git status
+	> s git status
 	# On branch master
 	nothing to commit (working directory clean)
 	> 
@@ -22,50 +22,44 @@ Happiness and productivity ensues without the hassle of exiting sbt or opening m
 Installing
 ----------
 
-The easiest way to install the sbt-sh plugin is to add it to your global sbt plugin list. To do this create a *.sbt/plugins/project* file (if it does not already exist). In this file add the dependency on the sbt-sh plugin:
+The easiest way to install the sbt-sh plugin is to add it to your global sbt plugin list. To do this create a *.sbt/plugins/* sbt file (if it does not already exist). In this file add the dependency on the xsbt-sh plugin:
 
-	import sbt._
-	
-	object MyPlugins extends Build {
-	  lazy val root = Project("root", file(".")) dependsOn(
-	    uri("git://github.com/steppenwells/sbt-sh.git")
-	  )
-	}
+	scalaVersion := "2.9.1"
 
-The sh plugin will be downloaded, built and installed next time you fire up sbt-0.10, and then available in all your sbt-0.10 builds.
+resolvers += "sbt-sh-repo" at "http://tomasky.github.com/repo/release"
+
+addSbtPlugin("com.blue" % "xsbt-sh" % "0.4.0")
+
+The sh plugin will be downloaded,  and available in all your sbt-0.11.X builds.
 
 Usage
 -----
 
 The sbt-sh plugin introduces a *sh* command to sbt, this will execute the rest of the line as a shell command:
 
-	> sh ls
+	> s ls
 	build.sbt
 	LICENSE
 	project
-	sbt
-	sbt-launch-0.10.0.jar
 	src
 	target
 	>
 
-	> sh ls -l
+	> s ls -l
 	total 940
 	-rw-r--r-- 1 swells developers     66 Jun  9 15:08 build.sbt
 	-rw-r--r-- 1 swells developers   1394 Jun  9 15:08 LICENSE
 	drwxr-xr-x 4 swells developers   4096 Jun  9 15:23 project
-	-rwxr-xr-x 1 swells developers     69 Jun  9 15:08 sbt
-	-rw-r--r-- 1 swells developers 935142 Jun  9 15:08 sbt-launch-0.10.0.jar
 	drwxr-xr-x 3 swells developers   4096 Jun  9 15:08 src
 	drwxr-xr-x 3 swells developers   4096 Jun  9 15:23 target
 	>
 
-	> sh cat build.sbt
+	> s cat build.sbt
 	sbtPlugin := true
 	
 	name := "xsbt-sh"
 	
-	organization := "org.sbtsh"
+	organization := "com.blue"
 	> 
 
 By now I'm sure you've got the idea...

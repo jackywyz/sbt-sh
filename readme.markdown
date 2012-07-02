@@ -26,9 +26,9 @@ The easiest way to install the sbt-sh plugin is to add it to your global sbt plu
 
 	scalaVersion := "2.9.1"
 
-resolvers += "sbt-sh-repo" at "http://tomasky.github.com/repo/release"
+        resolvers += "sbt-sh-repo" at "http://tomasky.github.com/repo/release"
 
-addSbtPlugin("com.blue" % "xsbt-sh" % "0.4.0")
+        addSbtPlugin("com.blue" % "xsbt-sh" % "0.4.0")
 
 The sh plugin will be downloaded,  and available in all your sbt-0.11.X builds.
 

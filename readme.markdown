@@ -9,7 +9,7 @@ If you're like me you will often find yourself typing in shell commands into the
 	[error]    ^
 	>
 
-Using the sbt-sh plugin (and sbt-0.10) you can invoke shell commands:
+Using the sbt-sh plugin (and sbt-0.11.x) you can invoke shell commands:
 
 	> s git status
 	# On branch master
